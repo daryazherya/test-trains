@@ -1,5 +1,5 @@
-export function fetchData(url: string,) {
+export async function fetchData(url: string) {
     return fetch(url)
-            .then(r => r.json())
-            .then(data => data)
+        .then(r => r.json())
+        .then(data => data)
 }

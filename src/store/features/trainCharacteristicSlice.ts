@@ -6,7 +6,7 @@ import { isValidData } from '../../helpers/functions';
 const initialState: TrainDataState = {
     trainData: []
 };
-  
+
 export const trainCharacteristicSlice = createSlice({
     name: 'trainCharacteristic',
     initialState,

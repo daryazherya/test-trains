@@ -1,11 +1,13 @@
 .trains {
-    max-width: 50%;
+    min-width: 20%;
     background: rgb(175, 171, 171);
-    border-radius: 5px
+    border-radius: 5px;
+    height: 100vh;
 }
 
 .trains-link {
     padding: 7px 25px; 
+    text-align: center;
 }
 .trains-link:hover {
     opacity: 0.4; 

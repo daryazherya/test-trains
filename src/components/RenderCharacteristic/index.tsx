@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import {  propsCharacteristic, TrainCharacteristicData } from "../../types/types";
-import { isValidDataStart, randomId } from "../../helpers/functions";
+import { isValidData, isValidDataStart, randomId } from "../../helpers/functions";
 import { useAppSelector, useAppDispatch } from '../../store/hooks'
 import { setTrainData } from "../../store/features/trainCharacteristicSlice";
 import './index.css';
@@ -9,8 +9,8 @@ const warningStyle = {
     border: '1px solid red'
 }
 
-const RenderCharacteristic = (props: propsCharacteristic) => {
-    const properties: TrainCharacteristicData[] = props.chosenTrain.map((characteristic, id) => ({
+const RenderCharacteristic = ({chosenTrain, handleChangeCharacteristic}: propsCharacteristic) => {
+    const properties: TrainCharacteristicData[] = chosenTrain.map((characteristic, id) => ({
         speed: characteristic.speed,
         force: characteristic.force,
         engineAmperage: characteristic.engineAmperage,
@@ -28,21 +28,27 @@ const RenderCharacteristic = (props: propsCharacteristic) => {
         return <tr key={characteristic.id}>
             <td>
                 <input value={characteristic.speed} 
-                    style={characteristic.speed > 0 && !/[.,]/g.test(String(characteristic.speed)) ? {} : warningStyle}
-                    onChange={(e) => props.handleChangeCharacteristic(characteristic.id, e.target.value, 'speed')}
+                    style={isValidData(String(characteristic.speed),'speed') ? 
+                         {} : warningStyle
+                    }
+                    onChange={(e) => handleChangeCharacteristic(characteristic.id, e.target.value, 'speed')}
                 />
             </td>
             <td>
                 <input value={characteristic.force}
-                    style={/^[0-9]+[.,][0-9]+$/g.test(String(characteristic.force)) ? {} : warningStyle}
-                    onChange={(e) => props.handleChangeCharacteristic(characteristic.id, e.target.value, 'force')}
+                    style={isValidData(String(characteristic.force),'force') ?
+                    {} : warningStyle
+                    }
+                    onChange={(e) => handleChangeCharacteristic(characteristic.id, e.target.value, 'force')}
                 />
             </td>
             <td>
                 <input 
                     value={characteristic.engineAmperage} 
-                    style={characteristic.engineAmperage > 0 && !/[.,]/g.test(String(characteristic.engineAmperage)) ? {} : warningStyle}
-                    onChange={(e) => props.handleChangeCharacteristic(characteristic.id, e.target.value, 'engineAmperage')}
+                    style={isValidData(String(characteristic.engineAmperage),'engineAmperage') ? 
+                        {} : warningStyle
+                    }
+                    onChange={(e) => handleChangeCharacteristic(characteristic.id, e.target.value, 'engineAmperage')}
                 />
             </td>
         </tr>

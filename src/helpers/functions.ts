@@ -1,4 +1,3 @@
-
 export function randomId (id: number) {
     return Math.random() * id
 }
@@ -10,7 +9,6 @@ export function isValidDataStart(speed: number , force: number , engineAmperage:
         return false
     }
 }
-
 export function isValidData(value: string, prop: string ) {
     if(prop === 'speed' || prop === 'engineAmperage') {
         return +value > 0 && !/[.,]/g.test(value)
