@@ -2,12 +2,19 @@
     min-width: 20%;
     background: rgb(175, 171, 171);
     border-radius: 5px;
-    height: 100vh;
+    height: 100%;
 }
-
-.trains-link {
-    padding: 7px 25px; 
+.trains p {
+    font-size: larger;
+    font-weight: 600;
     text-align: center;
+    margin: 15px 0;
+}
+.trains-link {
+    padding: 8px;
+    margin: 0 25px; 
+    text-align: center;
+    border-bottom: 1px solid black;
 }
 .trains-link:hover {
     opacity: 0.4; 
