@@ -21,8 +21,10 @@ export interface TrainDataState {
     trainData: TrainCharacteristicData[];
 }
 export interface TrainsList {
-    trains: Train[]
-}
+    trains: Train[],
+    status: string | null,
+    error: string | null | undefined
+} 
 
 export type propsTrain = {
     trains: Train[]; 

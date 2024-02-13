@@ -4,14 +4,14 @@ import { propsTrain, Train } from "../../types/types";
 import RenderCharacteristic from "../RenderCharacteristic";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { updateTrainData } from "../../store/features/trainCharacteristicSlice";
-import './index.css'
+import './index.css';
 
-const TrainCharacteristics = (props: propsTrain) => {
+const TrainCharacteristics = ({trains }: propsTrain) => {
     const { id } = useParams();
     const filterTrains = (data: Train[]) => {
         return data.find((train) => train.name.slice(7) === id);
     };
-    const chosenTrain = filterTrains(props.trains);
+    const chosenTrain = filterTrains(trains);
     const trainData = useAppSelector((state) => state.setTrainData);
     const dispatch = useAppDispatch();
    
@@ -29,7 +29,7 @@ const TrainCharacteristics = (props: propsTrain) => {
     }
     
     return <main className="main">
-        <ListOfTrains trains={props.trains}/>
+        <ListOfTrains trains={trains}/>
         <div className="table-wrapper">
         <div className="table-description">Характеристики поезда {id}</div>
             {chosenTrain &&  <table className="table">

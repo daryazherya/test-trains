@@ -1,5 +1,4 @@
 .trains {
-    min-width: 20%;
     background: rgb(175, 171, 171);
     border-radius: 5px;
     height: 100%;
@@ -8,14 +7,24 @@
     font-size: larger;
     font-weight: 600;
     text-align: center;
-    margin: 15px 0;
+    padding: 15px 0;
 }
+
+.trains-wrapper {
+    max-width: 25%;
+}
+
+.trains-wrapper p {
+    text-align: center;
+}
+
 .trains-link {
     padding: 8px;
     margin: 0 25px; 
     text-align: center;
     border-bottom: 1px solid black;
 }
+
 .trains-link:hover {
     opacity: 0.4; 
 }

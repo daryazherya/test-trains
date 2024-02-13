@@ -4,7 +4,8 @@ import { TrainCharacteristicData, TrainDataState } from '../../types/types';
 import { isValidData } from '../../helpers/functions';
 
 const initialState: TrainDataState = {
-    trainData: []
+    trainData: [],
+
 };
 
 export const trainCharacteristicSlice = createSlice({
@@ -27,7 +28,7 @@ export const trainCharacteristicSlice = createSlice({
             });  
             // console.log(state.trainData,'udpate')       
         }
-    }
+    },
 })
 
 export const {  setTrainData, updateTrainData } = trainCharacteristicSlice.actions
